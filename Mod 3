@@ -1,0 +1,42 @@
+public class Car {
+    private String make;
+    private String model;
+    private int year;
+
+    public Car() {
+        this.make = "Unknown";
+        this.model = "Unknown";
+        this.year = 0;
+    }
+
+    public Car(String make, String model, int year) {
+        this.make = make;
+        this.model = model;
+        this.year = year;
+    }
+
+    public Car(Car otherCar) {
+        this.make = otherCar.make;
+        this.model = otherCar.model;
+        this.year = otherCar.year;
+    }
+
+    System.out.println("Make: " + make + ", Model: " + model + ", Year: " + year);
+    }
+
+public class Main {
+    public static void main(String[] args) {
+        Car car1 = new Car();
+        Car car2 = new Car("Toyota", "Corolla", 2020);
+        Car car3 = new Car("Honda", "Civic", 2018);
+        Car car4 = new Car(car2);
+
+        Car shallowCopy = car3;
+        shallowCopy.printMe();
+        car3.printMe();
+
+        shallowCopy.make = "Ford";
+        shallowCopy.printMe();
+        car3.printMe();
+    }
+}
